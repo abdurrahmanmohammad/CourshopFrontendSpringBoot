@@ -1,0 +1,112 @@
+/*
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+*/
+/* Cornflower Blue: #797ef6 */
+/* Viking: #4adede */
+/* Picton Blue: #1aa7ec */
+/* Jacksons Purple: #1e2f97 */
+/* azure, aliceblue*/
+
+html,
+body {
+  height: 100%;
+  background-color: gainsboro;
+}
+
+.login {
+  background-image: url("images/background.jpg");
+  /*background-image: linear-gradient(to top right, #1aa7ec, #1e2f97); */
+  /*background-image: linear-gradient(to bottom right, #4adede, #1aa7ec); */
+  /*background: radial-gradient(#1aa7ec, #1e2f97); */
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+
+.carousel-inner {
+  width: 100%;
+  max-height: 600px !important;
+}
+
+.card img {
+  /*
+  height: 12.5rem !important;
+  width: 100%;
+  */
+  object-fit: cover;
+}
+.card {
+  border-radius: 0 !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shadow {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card * {
+  border-radius: 0 !important;
+}
+
+.product {
+  max-width: 600px;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+.dropdown-menu {
+  border-radius: 0 !important;
+}
+
+.form-control {
+  border-radius: 0 !important;
+}
+.corners {
+  border-radius: 0 !important;
+}
+
+.cart-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .border-control {
+    border-right: 0px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .border-control {
+    border-bottom: 0px !important;
+  }
+}
+/* -------------------- Cart Screen -------------------- */
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .border-control-cart {
+    border-left: 0px !important;
+  }
+}
