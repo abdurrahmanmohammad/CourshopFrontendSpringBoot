@@ -86,7 +86,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.patch(
-      CREATE_PRODUCT(product.get("_id"))
+      CREATE_PRODUCT(product.get("_id")),
       product,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
