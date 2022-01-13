@@ -1,35 +1,35 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, listUsers } from "../actions/userActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { USER_DETAILS_RESET } from "../constants/userConstants";
-import UserRow from "../components/UserRow";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteUser, listUsers } from '../actions/userActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { USER_DETAILS_RESET } from '../constants/userConstants'
+import UserRow from '../components/UserRow'
 
 export default function UserList(props) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const userList = useSelector((state) => state.userList);
-  const { loading, error, users } = userList;
+  const userList = useSelector((state) => state.userList)
+  const { loading, error, users } = userList
 
-  const userDelete = useSelector((state) => state.userDelete);
+  const userDelete = useSelector((state) => state.userDelete)
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-  } = userDelete;
+  } = userDelete
 
   useEffect(() => {
-    dispatch(listUsers());
+    dispatch(listUsers())
     dispatch({
       type: USER_DETAILS_RESET,
-    });
-  }, [dispatch, successDelete]);
+    })
+  }, [dispatch, successDelete])
   const deleteHandler = (user) => {
-    if (window.confirm("Are you sure?")) {
-      dispatch(deleteUser(user._id));
+    if (window.confirm('Are you sure?')) {
+      dispatch(deleteUser(user.id))
     }
-  };
+  }
 
   return (
     <div className="bg-light p-2">
@@ -65,7 +65,7 @@ export default function UserList(props) {
                 <UserRow
                   user={user}
                   deleteHandler={deleteHandler}
-                  key={user._id}
+                  key={user.id}
                 ></UserRow>
               ))}
             </tbody>
@@ -73,5 +73,5 @@ export default function UserList(props) {
         )}
       </div>
     </div>
-  );
+  )
 }

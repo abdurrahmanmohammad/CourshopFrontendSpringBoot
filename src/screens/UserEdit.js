@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { detailsUser, updateUser } from "../actions/userActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { USER_UPDATE_RESET } from "../constants/userConstants";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { detailsUser, updateUser } from '../actions/userActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { USER_UPDATE_RESET } from '../constants/userConstants'
 
 export default function UserEdit(props) {
-  const dispatch = useDispatch();
-  const userId = props.match.params.id;
+  const dispatch = useDispatch()
+  const userId = props.match.params.id
 
   // Update User fields
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [role, setRole] = useState('')
 
   /*
   // Update User password
@@ -21,31 +21,32 @@ export default function UserEdit(props) {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   */
 
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
-  const userUpdate = useSelector((state) => state.userUpdate);
+  const userDetails = useSelector((state) => state.userDetails)
+  const { loading, error, user } = userDetails
+
+  const userUpdate = useSelector((state) => state.userUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = userUpdate;
+  } = userUpdate
 
   useEffect(() => {
     if (successUpdate) {
-      dispatch({ type: USER_UPDATE_RESET });
-      props.history.push("/userlist");
+      dispatch({ type: USER_UPDATE_RESET })
+      props.history.push('/userlist')
     }
     if (!user) {
-      dispatch(detailsUser(userId));
+      dispatch(detailsUser(userId))
     } else {
-      setName(user.name);
-      setEmail(user.email);
-      setRole(user.role);
+      setName(user.name)
+      setEmail(user.email)
+      setRole(user.role)
     }
-  }, [dispatch, props.history, successUpdate, user, userId]);
+  }, [dispatch, props.history, successUpdate, user, userId])
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // dispatch update profile
     /*
     if (password !== passwordConfirm) {
@@ -60,8 +61,8 @@ export default function UserEdit(props) {
       );
     }
 */
-    dispatch(updateUser({ _id: userId, name, email, role }));
-  };
+    dispatch(updateUser({ id: userId, name, email, role }))
+  }
 
   return (
     <div className="bg-light p-2 h-100 pb-5">
@@ -134,6 +135,7 @@ export default function UserEdit(props) {
                 <input
                   type="email"
                   required
+                  disabled
                   className="form-control"
                   placeholder="Email"
                   aria-label="Email"
@@ -221,8 +223,8 @@ export default function UserEdit(props) {
                   <option value={user.role} defaultValue>
                     {user.role}
                   </option>
-                  <option value={user.role === "admin" ? "user" : "admin"}>
-                    {user.role === "admin" ? "user" : "admin"}
+                  <option value={user.role === 'admin' ? 'user' : 'admin'}>
+                    {user.role === 'admin' ? 'user' : 'admin'}
                   </option>
                 </select>
               </div>
@@ -238,5 +240,5 @@ export default function UserEdit(props) {
         </div>
       )}
     </div>
-  );
+  )
 }
