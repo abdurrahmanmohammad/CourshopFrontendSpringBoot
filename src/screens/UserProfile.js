@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { detailsCurrentUser, updateUserProfile } from "../actions/userActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { detailsCurrentUser, updateUserProfile } from '../actions/userActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 export default function UserProfile(props) {
   // Update User fields
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
 
   // Update User password
   /*
@@ -17,27 +17,29 @@ export default function UserProfile(props) {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 */
 
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
-  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const userDetails = useSelector((state) => state.userDetails)
+  const { loading, error, user } = userDetails
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+
   const {
     success: successUpdate,
     error: errorUpdate,
     loading: loadingUpdate,
-  } = userUpdateProfile;
+  } = userUpdateProfile
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useEffect(() => {
     if (!user) {
-      dispatch({ type: USER_UPDATE_PROFILE_RESET });
-      dispatch(detailsCurrentUser());
+      dispatch({ type: USER_UPDATE_PROFILE_RESET })
+      dispatch(detailsCurrentUser())
     } else {
-      setName(user.name);
-      setEmail(user.email);
+      setName(user.name)
+      setEmail(user.email)
     }
-  }, [dispatch, user]);
+  }, [dispatch, user])
+
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // dispatch update profile
     /*
     if (password !== passwordConfirm) {
@@ -54,11 +56,12 @@ export default function UserProfile(props) {
 */
     dispatch(
       updateUserProfile({
+        id: user.id,
         name,
         email,
-      })
-    );
-  };
+      }),
+    )
+  }
 
   return (
     <div className="bg-light p-2 h-100 pb-5">
@@ -131,13 +134,14 @@ export default function UserProfile(props) {
                 <input
                   type="email"
                   required
+                  disabled
                   className="form-control"
                   placeholder="Email"
                   aria-label="Email"
                   aria-describedby="basic-addon-email"
                   id="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  // onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -212,5 +216,5 @@ export default function UserProfile(props) {
         </div>
       )}
     </div>
-  );
+  )
 }

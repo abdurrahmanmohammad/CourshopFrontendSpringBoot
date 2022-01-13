@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { signout } from "../actions/userActions";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { signout } from '../actions/userActions'
 
 export default function Navbar(props) {
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  const dispatch = useDispatch();
+  const userSignin = useSelector((state) => state.userSignin)
+  const { userInfo } = userSignin
+  const dispatch = useDispatch()
   const signoutHandler = () => {
-    dispatch(signout());
-  };
+    dispatch(signout())
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 px-5">
@@ -56,7 +56,7 @@ export default function Navbar(props) {
             <>
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-shopping-cart" aria-hidden="true"></i>{' '}
                   Cart
                 </Link>
               </li>
@@ -98,7 +98,7 @@ export default function Navbar(props) {
             </li>
           )}
 
-          {userInfo && userInfo.role === "admin" && (
+          {userInfo && userInfo.role === 'admin' && (
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
@@ -127,5 +127,5 @@ export default function Navbar(props) {
         </ul>
       </div>
     </nav>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function UserRow(props) {
   return (
@@ -7,9 +7,9 @@ export default function UserRow(props) {
       <td scope="row">{props.user._id}</td>
       <td>{props.user.name}</td>
       <td>{props.user.email}</td>
-      <td>{props.user.role === "admin" ? "Yes" : "No"}</td>
+      <td>{props.user.role === 'admin' ? 'Yes' : 'No'}</td>
       <td>
-        <Link className="btn btn-dark mr-2" to={`/user/${props.user._id}/edit`}>
+        <Link className="btn btn-dark mr-2" to={`/user/${props.user.id}/edit`}>
           <i className="fas fa-edit"></i>
         </Link>
         <button
@@ -21,5 +21,5 @@ export default function UserRow(props) {
         </button>
       </td>
     </tr>
-  );
+  )
 }
