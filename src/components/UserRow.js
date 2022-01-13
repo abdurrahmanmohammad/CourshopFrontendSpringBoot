@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function UserRow(props) {
   return (
     <tr>
-      <td scope="row">{props.user._id}</td>
+      <td scope="row">{props.user.id}</td>
       <td>{props.user.name}</td>
       <td>{props.user.email}</td>
       <td>{props.user.role === 'admin' ? 'Yes' : 'No'}</td>
