@@ -28,14 +28,16 @@ export default function ProductEdit(props) {
     success: successUpdate,
   } = productUpdate
 
-  console.log(product)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(detailsProduct(productId))
+  }, [])
 
   useEffect(() => {
     if (successUpdate) {
       props.history.push('/productlist')
     }
-    dispatch({ type: PRODUCT_UPDATE_RESET })
     if (product) {
       setName(product.name)
       setPrice(product.price)
@@ -44,10 +46,8 @@ export default function ProductEdit(props) {
       setCountInStock(product.countInStock)
       setBrand(product.brand)
       setDescription(product.description)
-    } else {
-      dispatch(detailsProduct(productId))
     }
-  }, [product])
+  }, [product, successUpdate])
 
   const submitHandler = (e) => {
     e.preventDefault()

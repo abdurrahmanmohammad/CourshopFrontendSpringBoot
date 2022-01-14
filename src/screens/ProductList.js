@@ -17,6 +17,7 @@ export default function ProductList(props) {
 
   // Product Delete
   const productDelete = useSelector((state) => state.productDelete)
+
   const {
     loading: loadingDelete,
     error: errorDelete,
@@ -25,7 +26,9 @@ export default function ProductList(props) {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    if (successDelete) dispatch({ type: PRODUCT_DELETE_RESET })
+    if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET })
+    }
 
     dispatch(listProducts())
   }, [dispatch, props.history, successDelete])

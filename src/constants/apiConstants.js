@@ -52,4 +52,4 @@ export const CREATE_PRODUCT = 'http://localhost:8080/products'
 export const UPDATE_PRODUCT = (productId) =>
   `http://localhost:8080/products/${productId}`
 export const DELETE_PRODUCT = (productId) =>
-  `http://localhost:8080products/${productId}`
+  `http://localhost:8080/products/${productId}`

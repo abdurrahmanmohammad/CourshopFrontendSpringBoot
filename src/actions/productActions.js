@@ -41,6 +41,7 @@ export const detailsProduct = (productId) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId })
   try {
     const { data } = await Axios.get(PRODUCT_DETAILS(productId))
+    console.log(data)
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -80,13 +81,12 @@ export const updateProduct = (product) => async (dispatch, getState) => {
 
   try {
     const { data } = await Axios.patch(
-      UPDATE_PRODUCT(product.get('id')),
+      UPDATE_PRODUCT(parseInt(product.get('id'))),
       product,
       {
         headers: { Authorization: userInfo.token },
       },
     )
-    console.log(data)
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data })
   } catch (error) {
     const message =
@@ -103,7 +103,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState()
   try {
-    const { data } = Axios.delete(DELETE_PRODUCT, {
+    const { data } = Axios.delete(DELETE_PRODUCT(productId), {
       headers: { Authorization: userInfo.token },
     })
     dispatch({ type: PRODUCT_DELETE_SUCCESS })
