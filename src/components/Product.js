@@ -1,15 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { PRODUCT_COVER } from "../constants/apiConstants";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { PRODUCT_COVER } from '../constants/apiConstants'
 
-export default function Product(props) {
+export default function Product({ product }) {
   // Extract product from props
-  const { product } = props;
   return (
     <div className="col-md-6 col-lg-4 mb-5">
       <Link
-        to={`/product/${product._id}`}
-        style={{ textDecoration: "none", color: "black" }}
+        to={`/product/${product.id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
       >
         <div className="card">
           <img
@@ -27,5 +26,5 @@ export default function Product(props) {
         </div>
       </Link>
     </div>
-  );
+  )
 }

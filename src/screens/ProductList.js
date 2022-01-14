@@ -1,40 +1,40 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct, listProducts } from "../actions/productActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteProduct, listProducts } from '../actions/productActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
 import {
   PRODUCT_CREATE_RESET,
   PRODUCT_DELETE_RESET,
-} from "../constants/productConstants";
-import ProductRow from "../components/ProductRow";
-import { Link } from "react-router-dom";
+} from '../constants/productConstants'
+import ProductRow from '../components/ProductRow'
+import { Link } from 'react-router-dom'
 
 export default function ProductList(props) {
   // Get Product List
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const productList = useSelector((state) => state.productList)
+  const { loading, error, products } = productList
 
   // Product Delete
-  const productDelete = useSelector((state) => state.productDelete);
+  const productDelete = useSelector((state) => state.productDelete)
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
-  } = productDelete;
+  } = productDelete
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useEffect(() => {
-    if (successDelete) dispatch({ type: PRODUCT_DELETE_RESET });
+    if (successDelete) dispatch({ type: PRODUCT_DELETE_RESET })
 
-    dispatch(listProducts());
-  }, [dispatch, props.history, successDelete]);
+    dispatch(listProducts())
+  }, [dispatch, props.history, successDelete])
 
   const deleteHandler = (product) => {
-    if (window.confirm("Are you sure to delete?")) {
-      dispatch(deleteProduct(product._id));
+    if (window.confirm('Are you sure to delete?')) {
+      dispatch(deleteProduct(product.id))
     }
-  };
+  }
 
   return (
     <div className="bg-light p-2">
@@ -78,7 +78,7 @@ export default function ProductList(props) {
               {products.map((product) => (
                 <ProductRow
                   product={product}
-                  key={product._id}
+                  key={product.id}
                   deleteHandler={deleteHandler}
                 ></ProductRow>
               ))}
@@ -87,5 +87,5 @@ export default function ProductList(props) {
         )}
       </div>
     </div>
-  );
+  )
 }

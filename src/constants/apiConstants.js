@@ -33,12 +33,22 @@ export const GET_USERS = 'http://localhost:8080/users'
 export const DELETE_USER = (userId) => `http://localhost:8080/users/${userId}`
 
 /** Product API Endpoints */
+// export const PRODUCT_COVER = (imageCover) =>
+//   `https://courshopbackend.herokuapp.com/${imageCover}`
+// export const GET_PRODUCTS = 'https://courshopbackend.herokuapp.com/api/products'
+// export const PRODUCT_DETAILS = (productId) =>
+//   `https://courshopbackend.herokuapp.com/api/products/${productId}`
+// export const CREATE_PRODUCT = (productId) =>
+//   `https://courshopbackend.herokuapp.com/api/products/${productId}`
+// export const DELETE_PRODUCT = (productId) =>
+//   `https://courshopbackend.herokuapp.com/api/products/${productId}`
+
 export const PRODUCT_COVER = (imageCover) =>
-  `https://courshopbackend.herokuapp.com/${imageCover}`
-export const GET_PRODUCTS = 'https://courshopbackend.herokuapp.com/api/products'
+  `http://localhost:8080/products/${imageCover}`
+export const GET_PRODUCTS = 'http://localhost:8080/products'
 export const PRODUCT_DETAILS = (productId) =>
-  `https://courshopbackend.herokuapp.com/api/products/${productId}`
+  `http://localhost:8080/products/${productId}`
 export const CREATE_PRODUCT = (productId) =>
-  `https://courshopbackend.herokuapp.com/api/products/${productId}`
+  `http://localhost:8080/products/${productId}`
 export const DELETE_PRODUCT = (productId) =>
-  `https://courshopbackend.herokuapp.com/api/products/${productId}`
+  `http://localhost:8080products/${productId}`
