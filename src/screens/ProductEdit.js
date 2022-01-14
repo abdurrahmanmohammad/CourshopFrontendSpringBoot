@@ -1,86 +1,90 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { detailsProduct, updateProduct } from "../actions/productActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { detailsProduct, updateProduct } from '../actions/productActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
 
 export default function ProductEdit(props) {
-  const productId = props.match.params.id;
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [imageCover, setImageCover] = useState("");
-  const [category, setCategory] = useState("");
-  const [countInStock, setCountInStock] = useState("");
-  const [brand, setBrand] = useState("");
-  const [description, setDescription] = useState("");
+  const productId = props.match.params.id
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
+  const [imageCover, setImageCover] = useState('')
+  const [category, setCategory] = useState('')
+  const [countInStock, setCountInStock] = useState('')
+  const [brand, setBrand] = useState('')
+  const [description, setDescription] = useState('')
+  const bodyFormData = new FormData()
 
   /** ******************** Start: Extract data from Redux store state ******************** */
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, error, product } = productDetails
   /** ******************** End: Extract data from Redux store state ******************** */
 
-  // Create an empty form data object to contain updated data and image cover
-  const bodyFormData = new FormData();
-
-  const productUpdate = useSelector((state) => state.productUpdate);
+  const productUpdate = useSelector((state) => state.productUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = productUpdate;
+  } = productUpdate
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(detailsProduct(productId))
+  }, [])
+
   useEffect(() => {
     if (successUpdate) {
-      props.history.push("/productlist");
+      props.history.push('/productlist')
     }
-    if (!product || product._id !== productId || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET });
-      dispatch(detailsProduct(productId));
-    } else {
-      setName(product.name);
-      setPrice(product.price);
-      setImageCover(product.imageCover);
-      setCategory(product.category);
-      setCountInStock(product.countInStock);
-      setBrand(product.brand);
-      setDescription(product.description);
+    if (product) {
+      setName(product.name)
+      setPrice(product.price)
+      setImageCover(product.imageCover)
+      setCategory(product.category)
+      setCountInStock(product.countInStock)
+      setBrand(product.brand)
+      setDescription(product.description)
     }
-  }, [product, dispatch, productId, successUpdate, props.history]);
-  const submitHandler = (e) => {
-    e.preventDefault();
-    // TODO: dispatch update product
-    bodyFormData.set("_id", productId);
-    bodyFormData.set("name", name);
-    bodyFormData.set("price", price);
-    bodyFormData.set("category", category);
-    bodyFormData.set("countInStock", countInStock);
-    bodyFormData.set("brand", brand);
-    bodyFormData.set("description", description);
-    dispatch(updateProduct(bodyFormData));
-  };
-  const [loadingUpload, setLoadingUpload] = useState(false);
-  const [errorUpload, setErrorUpload] = useState("");
+  }, [product, successUpdate])
 
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const submitHandler = (e) => {
+    e.preventDefault()
+    // TODO: dispatch update product
+    bodyFormData.set('id', productId)
+    bodyFormData.set('name', name)
+    bodyFormData.set('price', price)
+    bodyFormData.set('category', category)
+    bodyFormData.set('countInStock', countInStock)
+    bodyFormData.set('brand', brand)
+    bodyFormData.set('description', description)
+
+    dispatch(updateProduct(bodyFormData))
+  }
+  const [loadingUpload, setLoadingUpload] = useState(false)
+  const [errorUpload, setErrorUpload] = useState('')
+
+  const userSignin = useSelector((state) => state.userSignin)
+
+  const { userInfo } = userSignin
+
   const uploadFileHandler = async (e) => {
     // Optional image upload
-    setLoadingUpload(true);
+    setLoadingUpload(true)
 
     // Retrieve uploaded image
-    const file = e.target.files[0];
+    const file = e.target.files[0]
 
     // Add image to form data
-    bodyFormData.set("imageCover", file);
+    bodyFormData.set('image', file)
 
     // setImageCover(data);
-    setLoadingUpload(false);
+    setLoadingUpload(false)
 
     // Set image label to filename
-    document.getElementById("imageLabel").innerHTML = file.name;
-  };
+    document.getElementById('imageLabel').innerHTML = file.name
+  }
   return (
     <div className="bg-light p-2">
       <div className="bg-white mx-auto mt-5 shadow p-5 w-50">
@@ -272,5 +276,5 @@ export default function ProductEdit(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }

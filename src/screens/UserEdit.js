@@ -223,8 +223,8 @@ export default function UserEdit(props) {
                   <option value={user.role} defaultValue>
                     {user.role}
                   </option>
-                  <option value={user.role === 'admin' ? 'user' : 'admin'}>
-                    {user.role === 'admin' ? 'user' : 'admin'}
+                  <option value={user.role === 'ADMIN' ? 'CUSTOMER' : 'ADMIN'}>
+                    {user.role === 'ADMIN' ? 'CUSTOMER' : 'ADMIN'}
                   </option>
                 </select>
               </div>

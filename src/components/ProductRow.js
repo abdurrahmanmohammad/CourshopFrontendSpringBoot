@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ProductRow(props) {
   return (
     <tr>
-      <td scope="row">{props.product._id}</td>
+      <td scope="row">{props.product.id}</td>
 
       <td>{props.product.name}</td>
       <td>${props.product.price}</td>
@@ -14,7 +14,7 @@ export default function ProductRow(props) {
       <td>
         <Link
           className="btn btn-dark mr-2"
-          to={`/product/${props.product._id}/edit`}
+          to={`/product/${props.product.id}/edit`}
         >
           <i className="fas fa-edit"></i>
         </Link>
@@ -27,5 +27,5 @@ export default function ProductRow(props) {
         </button>
       </td>
     </tr>
-  );
+  )
 }

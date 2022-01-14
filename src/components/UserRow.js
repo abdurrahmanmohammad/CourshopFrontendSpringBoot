@@ -7,7 +7,7 @@ export default function UserRow(props) {
       <td scope="row">{props.user.id}</td>
       <td>{props.user.name}</td>
       <td>{props.user.email}</td>
-      <td>{props.user.role === 'admin' ? 'Yes' : 'No'}</td>
+      <td>{props.user.role === 'ADMIN' ? 'Yes' : 'No'}</td>
       <td>
         <Link className="btn btn-dark mr-2" to={`/user/${props.user.id}/edit`}>
           <i className="fas fa-edit"></i>
