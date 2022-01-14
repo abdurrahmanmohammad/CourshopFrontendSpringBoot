@@ -21,6 +21,7 @@ import {
   GET_PRODUCTS,
   PRODUCT_DETAILS,
   CREATE_PRODUCT,
+  UPDATE_PRODUCT,
   DELETE_PRODUCT,
 } from '../constants/apiConstants'
 
@@ -56,6 +57,7 @@ export const createProduct = (product) => async (dispatch, getState) => {
   const {
     userSignin: { userInfo },
   } = getState()
+
   try {
     const { data } = await Axios.post(CREATE_PRODUCT, product, {
       headers: { Authorization: userInfo.token },
@@ -72,30 +74,27 @@ export const createProduct = (product) => async (dispatch, getState) => {
 
 export const updateProduct = (product) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_UPDATE_REQUEST, payload: product })
-  for (var [key, value] of product.entries()) {
-    console.log(key, value)
-  }
   const {
     userSignin: { userInfo },
   } = getState()
 
-  // try {
-  //   const { data } = await Axios.patch(
-  //     CREATE_PRODUCT(product.get('id')),
-  //     product,
-  //     {
-  //       headers: { Authorization: userInfo.token },
-  //     },
-  //   )
-  //   console.log(data)
-  //   dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data })
-  // } catch (error) {
-  //   const message =
-  //     error.response && error.response.data.message
-  //       ? error.response.data.message
-  //       : error.message
-  //   dispatch({ type: PRODUCT_UPDATE_FAIL, error: message })
-  // }
+  try {
+    const { data } = await Axios.patch(
+      UPDATE_PRODUCT(product.get('id')),
+      product,
+      {
+        headers: { Authorization: userInfo.token },
+      },
+    )
+    console.log(data)
+    dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data })
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    dispatch({ type: PRODUCT_UPDATE_FAIL, error: message })
+  }
 }
 
 export const deleteProduct = (productId) => async (dispatch, getState) => {

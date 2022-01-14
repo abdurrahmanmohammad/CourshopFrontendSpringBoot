@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createProduct } from "../actions/productActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createProduct } from '../actions/productActions'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
 export default function ProductCreate(props) {
   /** *************** Utils *************** */
-  const dispatch = useDispatch(); // Reference of dispatch fx from Redux store to dispatch actions
+  const dispatch = useDispatch() // Reference of dispatch fx from Redux store to dispatch actions
 
   /** *************** State variables *************** */
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-  const [countInStock, setCountInStock] = useState("");
-  const [brand, setBrand] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageCover, setImageCover] = useState("");
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
+  const [category, setCategory] = useState('')
+  const [countInStock, setCountInStock] = useState('')
+  const [brand, setBrand] = useState('')
+  const [description, setDescription] = useState('')
+  const [imageCover, setImageCover] = useState('')
 
   /** *************** Extract data from Redux store *************** */
-  const productCreate = useSelector((state) => state.productCreate);
-  const { loading, error, success } = productCreate;
+  const productCreate = useSelector((state) => state.productCreate)
+  const { loading, error, success } = productCreate
 
   /** *************** Fetch data and render components *************** */
   useEffect(() => {
     if (success) {
-      dispatch({ type: PRODUCT_CREATE_RESET }); // Set product update to default state
-      props.history.push("/productlist"); // Push to product list after successful create
+      dispatch({ type: PRODUCT_CREATE_RESET }) // Set product update to default state
+      props.history.push('/productlist') // Push to product list after successful create
     }
     // Update variable states
-    setName(name);
-    setPrice(price);
-    setCategory(category);
-    setCountInStock(countInStock);
-    setBrand(brand);
-    setDescription(description);
+    setName(name)
+    setPrice(price)
+    setCategory(category)
+    setCountInStock(countInStock)
+    setBrand(brand)
+    setDescription(description)
   }, [
     success,
     props.history,
@@ -44,37 +44,37 @@ export default function ProductCreate(props) {
     countInStock,
     brand,
     description,
-  ]);
+  ])
 
   /** *************** Optional image upload *************** */
   const uploadFileHandler = async (e) => {
-    document.getElementById("filename").innerHTML = (
+    document.getElementById('filename').innerHTML = (
       <span>
         <i class="fas fa-spinner fa-spin" />
         Uploading ...
       </span>
-    ); // Set uploading icon
-    const file = e.target.files[0]; // Retrieve uploaded image file
-    setImageCover(file); // Set image cover to file
-    document.getElementById("filename").innerHTML = file.name; // Show filename
-  };
+    ) // Set uploading icon
+    const file = e.target.files[0] // Retrieve uploaded image file
+    setImageCover(file) // Set image cover to file
+    document.getElementById('filename').innerHTML = file.name // Show filename
+  }
 
   /** *************** Submit handler *************** */
   const submitHandler = (e) => {
-    e.preventDefault(); // Prevent the default form submit action
+    e.preventDefault() // Prevent the default form submit action
     // Create an empty form data object to contain updated data and image cover
-    const formData = new FormData();
+    const formData = new FormData()
     // Extract variable values from state and add to form data object
-    formData.set("name", name);
-    formData.set("price", price);
-    formData.set("category", category);
-    formData.set("countInStock", countInStock);
-    formData.set("brand", brand);
-    formData.set("description", description);
-    formData.set("imageCover", imageCover); // Add image to form data (want to submit along other data)
+    formData.set('name', name)
+    formData.set('price', price)
+    formData.set('category', category)
+    formData.set('countInStock', countInStock)
+    formData.set('brand', brand)
+    formData.set('description', description)
+    formData.set('image', imageCover) // Add image to form data (want to submit along other data)
 
-    dispatch(createProduct(formData)); // Dispatch create product action
-  };
+    dispatch(createProduct(formData)) // Dispatch create product action
+  }
 
   return (
     <div className="bg-light p-2">
@@ -234,5 +234,5 @@ export default function ProductCreate(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }

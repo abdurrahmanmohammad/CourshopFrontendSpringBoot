@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { detailsProduct, updateProduct } from '../actions/productActions'
 import LoadingBox from '../components/LoadingBox'
@@ -28,15 +28,15 @@ export default function ProductEdit(props) {
     success: successUpdate,
   } = productUpdate
 
+  console.log(product)
   const dispatch = useDispatch()
+
   useEffect(() => {
     if (successUpdate) {
       props.history.push('/productlist')
     }
-    if (!product || product.id !== productId || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET })
-      dispatch(detailsProduct(productId))
-    } else {
+    dispatch({ type: PRODUCT_UPDATE_RESET })
+    if (product) {
       setName(product.name)
       setPrice(product.price)
       setImageCover(product.imageCover)
@@ -44,8 +44,10 @@ export default function ProductEdit(props) {
       setCountInStock(product.countInStock)
       setBrand(product.brand)
       setDescription(product.description)
+    } else {
+      dispatch(detailsProduct(productId))
     }
-  }, [product, dispatch, productId, successUpdate, props.history])
+  }, [product])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -58,16 +60,15 @@ export default function ProductEdit(props) {
     bodyFormData.set('brand', brand)
     bodyFormData.set('description', description)
 
-    for (var [key, value] of bodyFormData.entries()) {
-      console.log(key, value)
-    }
     dispatch(updateProduct(bodyFormData))
   }
   const [loadingUpload, setLoadingUpload] = useState(false)
   const [errorUpload, setErrorUpload] = useState('')
 
   const userSignin = useSelector((state) => state.userSignin)
+
   const { userInfo } = userSignin
+
   const uploadFileHandler = async (e) => {
     // Optional image upload
     setLoadingUpload(true)
@@ -76,7 +77,7 @@ export default function ProductEdit(props) {
     const file = e.target.files[0]
 
     // Add image to form data
-    bodyFormData.set('imageCover', file)
+    bodyFormData.set('image', file)
 
     // setImageCover(data);
     setLoadingUpload(false)

@@ -48,7 +48,8 @@ export const PRODUCT_COVER = (imageCover) =>
 export const GET_PRODUCTS = 'http://localhost:8080/products'
 export const PRODUCT_DETAILS = (productId) =>
   `http://localhost:8080/products/${productId}`
-export const CREATE_PRODUCT = (productId) =>
+export const CREATE_PRODUCT = 'http://localhost:8080/products'
+export const UPDATE_PRODUCT = (productId) =>
   `http://localhost:8080/products/${productId}`
 export const DELETE_PRODUCT = (productId) =>
   `http://localhost:8080products/${productId}`
