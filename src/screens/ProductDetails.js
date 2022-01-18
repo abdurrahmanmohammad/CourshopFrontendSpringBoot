@@ -31,7 +31,7 @@ export default function ProductDetails(props) {
 
   /** *************** Submit handler *************** */
   const addToCartHandler = () => {
-    dispatch(addToCart({ ...product, quantity, product: product._id }))
+    dispatch(addToCart({ ...product, quantity, product: product.id }))
   }
 
   return (

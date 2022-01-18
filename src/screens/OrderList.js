@@ -30,7 +30,7 @@ export default function OrderList(props) {
   }, [dispatch, successDelete]);
   const deleteHandler = (order) => {
     if (window.confirm("Are you sure to delete?")) {
-      dispatch(deleteOrder(order._id));
+      dispatch(deleteOrder(order.id));
     }
   };
   return (
@@ -63,7 +63,7 @@ export default function OrderList(props) {
             <tbody>
               {orders.map((order) => (
                 <OrderRow
-                  key={order._id}
+                  key={order.id}
                   order={order}
                   orderList={true}
                   deleteHandler={deleteHandler}

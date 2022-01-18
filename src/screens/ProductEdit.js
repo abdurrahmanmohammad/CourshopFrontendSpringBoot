@@ -36,6 +36,7 @@ export default function ProductEdit(props) {
 
   useEffect(() => {
     if (successUpdate) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
       props.history.push('/productlist')
     }
     if (product) {
@@ -228,7 +229,6 @@ export default function ProductEdit(props) {
                 <div className="custom-file">
                   <input
                     type="file"
-                    required
                     className="custom-file-input"
                     aria-describedby="inputGroupFileAddon01"
                     id="imageFile"

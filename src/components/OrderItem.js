@@ -17,7 +17,7 @@ export default function CartItem(props) {
       <div className="col-sm-4 col-md-3">
         <Link
           className="font-weight-bold"
-          to={`/product/${props.orderItem._id}`}
+          to={`/product/${props.orderItem.id}`}
         >
           {" "}
           {props.orderItem.name}{" "}

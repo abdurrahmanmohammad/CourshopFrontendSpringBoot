@@ -42,7 +42,7 @@ export default function OrderHistory(props) {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <OrderRow key={order._id} order={order}></OrderRow>
+                <OrderRow key={order.id} order={order}></OrderRow>
               ))}
             </tbody>
           </table>

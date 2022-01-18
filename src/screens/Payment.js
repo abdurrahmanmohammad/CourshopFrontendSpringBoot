@@ -46,7 +46,7 @@ export default function Payment(props) {
 
   const placeOrderHandler = () => {
     const order = {
-      user: userInfo._id,
+      user: userInfo.id,
       orderItems: cartItems,
       shippingAddress,
       paymentMethod,
@@ -61,14 +61,14 @@ export default function Payment(props) {
   useEffect(() => {
     if (success) {
       dispatch({ type: ORDER_CREATE_RESET });
-      props.history.push(`/order/my/${order._id}`);
+      props.history.push(`/order/my/${order.id}`);
     }
   }, [dispatch, order, props.history, success]);
 
   /** *************** Payment *************** */
   const tokenFunction = async (token) => {
     const order = {
-      user: userInfo._id,
+      user: userInfo.id,
       orderItems: cartItems,
       shippingAddress,
       paymentMethod,

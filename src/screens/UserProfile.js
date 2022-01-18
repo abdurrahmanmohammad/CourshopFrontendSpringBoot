@@ -47,7 +47,7 @@ export default function UserProfile(props) {
     } else {
       dispatch(
         updateUserProfile({
-          userId: user._id,
+          userId: user.id,
           name,
           email,
         })

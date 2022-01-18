@@ -40,7 +40,7 @@ export default function OrderDetails(props) {
         ) : (
           <>
             <h1 className="display-4 text-center">
-              Order <span className="text-secondary">{order._id}</span>
+              Order <span className="text-secondary">{order.id}</span>
             </h1>
             <hr className="w-75 pb-5" />
 
@@ -50,7 +50,7 @@ export default function OrderDetails(props) {
                   {order.orderItems.map((orderItem) => (
                     <OrderItem
                       orderItem={orderItem}
-                      key={orderItem._id}
+                      key={orderItem.id}
                     ></OrderItem>
                   ))}
                 </div>
@@ -64,7 +64,7 @@ export default function OrderDetails(props) {
                   <li className="list-group-item corners py-1">
                     <span className="float-left">Order ID</span>
                     <span className="float-right font-weight-light">
-                      {order._id}
+                      {order.id}
                     </span>
                   </li>
                   <li className="list-group-item corners py-1">

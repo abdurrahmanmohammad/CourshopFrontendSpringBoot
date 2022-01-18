@@ -37,7 +37,7 @@ export default function CartItem(props) {
       </div>
 
       <div className="col-sm-4 col-md-3">
-        <Link className="font-weight-bold" to={`/product/${product._id}`}>
+        <Link className="font-weight-bold" to={`/product/${product.id}`}>
           {product.name}
         </Link>
         <p className="font-weight-light m-auto">
@@ -46,7 +46,7 @@ export default function CartItem(props) {
         <a
           className="text-danger"
           style={{ cursor: "pointer" }}
-          onClick={() => removeFromCartHandler(product._id)}
+          onClick={() => removeFromCartHandler(product.id)}
         >
           Remove
         </a>

@@ -45,7 +45,7 @@ export default function Cart(props) {
           <div className="row mb-5 h-100">
             <div className="col-lg-8 h-100 pr-0">
               {cartItems.map((cartItem) => (
-                <CartItem cartItem={cartItem} key={cartItem._id} />
+                <CartItem cartItem={cartItem} key={cartItem.id} />
               ))}
             </div>
 

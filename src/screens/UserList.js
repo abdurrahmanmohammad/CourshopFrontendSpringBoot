@@ -54,6 +54,7 @@ export default function UserList(props) {
             <thead className="thead-dark">
               <tr>
                 <th scope="col">User ID</th>
+                <th scope="col">Active</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Admin</th>

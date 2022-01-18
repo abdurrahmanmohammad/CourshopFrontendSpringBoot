@@ -13,6 +13,7 @@ export default function UserEdit(props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [role, setRole] = useState('')
+  const [active, setActive] = useState('')
 
   /*
   // Update User password
@@ -54,14 +55,14 @@ export default function UserEdit(props) {
     } else {
       dispatch(
         updateUserProfile({
-          userId: user._id,
+          userId: user.id,
           name,
           email,
         })
       );
     }
 */
-    dispatch(updateUser({ id: userId, name, email, role }))
+    dispatch(updateUser({ id: userId, name, email, role, active }))
   }
 
   return (
@@ -228,6 +229,29 @@ export default function UserEdit(props) {
                   </option>
                 </select>
               </div>
+
+              <div className="input-group mb-3 input-group-sm">
+              <div className="input-group-prepend">
+                <label
+                  className="input-group-text"
+                  htmlFor="inputGroupSelect01"
+                >
+                  Active
+                </label>
+              </div>
+              <select
+                className="custom-select"
+                id="active"
+                onChange={(e) => setActive(e.target.value)}
+              >
+                <option value={user.role === true} defaultValue>
+                {user.active === false ? 'False' : 'True'}
+                </option>
+                <option value={user.active !== true}>
+                  {user.active !== false ? 'False' : 'True'}
+                </option>
+              </select>
+            </div>
 
               <button
                 type="submit"
