@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function UserRow(props) {
-  console.log(props.user)
   return (
     <tr>
       <td scope="row">{props.user.id}</td>

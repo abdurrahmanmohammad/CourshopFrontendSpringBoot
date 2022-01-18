@@ -33,6 +33,7 @@ export default function Payment(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
+
   /** *************** Validation *************** */
   if (!cartItems || cartItems.length === 0) props.history.push("/shipping");
   if (!shippingAddress) props.history.push("/shipping");
@@ -67,9 +68,18 @@ export default function Payment(props) {
 
   /** *************** Payment *************** */
   const tokenFunction = async (token) => {
+    const orderItems = cartItems.map(cartItem => 
+      ({
+        "product": {"id": cartItem.id},
+        "quantity": cartItem.quantity,
+        "price": cartItem.price,
+        "name": cartItem.name,
+      })
+    
+    );
     const order = {
-      user: userInfo.id,
-      orderItems: cartItems,
+      user: {"id":userInfo.id},
+      orderItems,
       shippingAddress,
       paymentMethod,
       itemsPrice,

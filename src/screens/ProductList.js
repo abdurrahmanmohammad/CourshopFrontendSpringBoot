@@ -26,7 +26,6 @@ export default function ProductList(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successDelete) dispatch({ type: PRODUCT_DELETE_RESET });
-    console.log(products);
     dispatch(listProducts());
   }, [dispatch, props.history, successDelete]);
 

@@ -49,8 +49,8 @@ export default function OrderDetails(props) {
                 <div className="row pb-3 pl-5">
                   {order.orderItems.map((orderItem) => (
                     <OrderItem
+                    key={orderItem.product.id}
                       orderItem={orderItem}
-                      key={orderItem.id}
                     ></OrderItem>
                   ))}
                 </div>

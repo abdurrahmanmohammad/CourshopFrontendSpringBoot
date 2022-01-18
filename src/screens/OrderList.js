@@ -36,7 +36,7 @@ export default function OrderList(props) {
   return (
     <div className="bg-light p-2">
       <div className="bg-white m-5 shadow p-5">
-        <h1 className="display-4 text-center pb-3">Order History</h1>
+        <h1 className="display-4 text-center pb-3">Order List</h1>
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (

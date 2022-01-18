@@ -98,7 +98,7 @@ export default function Navbar(props) {
             </li>
           )}
 
-          {userInfo && userInfo.role === 'admin' && (
+          {userInfo && (userInfo.role === 'ADMIN' || userInfo.role === 'admin') && (
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"

@@ -114,7 +114,6 @@ export const detailsCurrentUser = (userId) => async (dispatch, getState) => {
     const { data } = await Axios.get(MY_USER_DETAILS, {
       headers: { Authorization: userInfo.token },
     })
-
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data })
   } catch (error) {
     const message =
@@ -134,7 +133,8 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     const { data } = await Axios.patch(UPDATE_MY_USER, user, {
       headers: { Authorization: userInfo.token },
     })
-    const currentUser = { ...user, token: userInfo.token }
+    
+    const currentUser = { ...data, token: userInfo.token }
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: currentUser })
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: currentUser })
     localStorage.setItem('userInfo', JSON.stringify(currentUser))
