@@ -1,13 +1,13 @@
 /** Order API Endpoints */
-export const CHECKOUT_ORDER = "http://localhost:8080/orders";
-export const MY_ORDER = (orderId) => `http://localhost:8080/orders/mine/${orderId}`;
-export const MY_ORDERS = "http://localhost:8080/orders/mine";
-export const GET_ORDERS = "http://localhost:8080/orders";
-export const GET_ORDER = (orderId) => `http://localhost:8080/orders/${orderId}`;
-export const DELETE_ORDER = (orderId) => `http://localhost:8080/orders/${orderId}`;
-export const PAY_ORDER = (orderId) => `http://localhost:8080/orders/pay/${orderId}`;
+export const CHECKOUT_ORDER = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders";
+export const MY_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/mine/${orderId}`;
+export const MY_ORDERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/mine";
+export const GET_ORDERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders";
+export const GET_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/${orderId}`;
+export const DELETE_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/${orderId}`;
+export const PAY_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/pay/${orderId}`;
 export const DELIVER_ORDER = (orderId) =>
-  `http://localhost:8080/orders/deliver/${orderId}`;
+  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/deliver/${orderId}`;
 
 /** User API Endpoints */
 // export const REGISTER = "https://courshopbackend.herokuapp.com/api/users/signup";
@@ -18,14 +18,14 @@ export const DELIVER_ORDER = (orderId) =>
 // export const UPDATE_USER = (userId) => `https://courshopbackend.herokuapp.com/api/users/${user.id}`;
 // export const GET_USERS = "https://courshopbackend.herokuapp.com/api/users";
 // export const DELETE_USER = (userId) => `https://courshopbackend.herokuapp.com/api/users/${userId}`;
-export const REGISTER = "http://localhost:8080/auth/signup";
-export const LOGIN = "http://localhost:8080/auth/login";
-export const USER_DETAILS = (userId) => `http://localhost:8080/users/${userId}`;
-export const MY_USER_DETAILS = `http://localhost:8080/users/me`;
-export const UPDATE_MY_USER = `http://localhost:8080/users/updateMe`;
-export const UPDATE_USER = (userId) => `http://localhost:8080/users/${userId}`;
-export const GET_USERS = "http://localhost:8080/users";
-export const DELETE_USER = (userId) => `http://localhost:8080/users/${userId}`;
+export const REGISTER = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/auth/signup";
+export const LOGIN = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/auth/login";
+export const USER_DETAILS = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
+export const MY_USER_DETAILS = `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/me`;
+export const UPDATE_MY_USER = `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/updateMe`;
+export const UPDATE_USER = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
+export const GET_USERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users";
+export const DELETE_USER = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
 
 /** Product API Endpoints */
 // export const PRODUCT_COVER = (imageCover) =>
@@ -39,12 +39,12 @@ export const DELETE_USER = (userId) => `http://localhost:8080/users/${userId}`;
 //   `https://courshopbackend.herokuapp.com/api/products/${productId}`
 
 export const PRODUCT_COVER = (imageCover) =>
-  `http://localhost:8080/products/images/${imageCover}`;
-export const GET_PRODUCTS = "http://localhost:8080/products";
+  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/images/${imageCover}`;
+export const GET_PRODUCTS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products";
 export const PRODUCT_DETAILS = (productId) =>
-  `http://localhost:8080/products/${productId}`;
-export const CREATE_PRODUCT = "http://localhost:8080/products";
+  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
+export const CREATE_PRODUCT = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products";
 export const UPDATE_PRODUCT = (productId) =>
-  `http://localhost:8080/products/${productId}`;
+  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
 export const DELETE_PRODUCT = (productId) =>
-  `http://localhost:8080/products/${productId}`;
+  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
