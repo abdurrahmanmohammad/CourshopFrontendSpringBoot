@@ -1,13 +1,13 @@
 /** Order API Endpoints */
-export const CHECKOUT_ORDER = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders";
-export const MY_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/mine/${orderId}`;
-export const MY_ORDERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/mine";
-export const GET_ORDERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders";
-export const GET_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/${orderId}`;
-export const DELETE_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/${orderId}`;
-export const PAY_ORDER = (orderId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/pay/${orderId}`;
+export const CHECKOUT_ORDER = "https://supplybackend.ee-cognizantacademy.com/orders";
+export const MY_ORDER = (orderId) => `https://supplybackend.ee-cognizantacademy.com/orders/mine/${orderId}`;
+export const MY_ORDERS = "https://supplybackend.ee-cognizantacademy.com/orders/mine";
+export const GET_ORDERS = "https://supplybackend.ee-cognizantacademy.com/orders";
+export const GET_ORDER = (orderId) => `https://supplybackend.ee-cognizantacademy.com/orders/${orderId}`;
+export const DELETE_ORDER = (orderId) => `https://supplybackend.ee-cognizantacademy.com/orders/${orderId}`;
+export const PAY_ORDER = (orderId) => `https://supplybackend.ee-cognizantacademy.com/orders/pay/${orderId}`;
 export const DELIVER_ORDER = (orderId) =>
-  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/orders/deliver/${orderId}`;
+  `https://supplybackend.ee-cognizantacademy.com/orders/deliver/${orderId}`;
 
 /** User API Endpoints */
 // export const REGISTER = "https://courshopbackend.herokuapp.com/api/users/signup";
@@ -18,14 +18,14 @@ export const DELIVER_ORDER = (orderId) =>
 // export const UPDATE_USER = (userId) => `https://courshopbackend.herokuapp.com/api/users/${user.id}`;
 // export const GET_USERS = "https://courshopbackend.herokuapp.com/api/users";
 // export const DELETE_USER = (userId) => `https://courshopbackend.herokuapp.com/api/users/${userId}`;
-export const REGISTER = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/auth/signup";
-export const LOGIN = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/auth/login";
-export const USER_DETAILS = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
-export const MY_USER_DETAILS = `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/me`;
-export const UPDATE_MY_USER = `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/updateMe`;
-export const UPDATE_USER = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
-export const GET_USERS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users";
-export const DELETE_USER = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/users/${userId}`;
+export const REGISTER = "https://supplybackend.ee-cognizantacademy.com/auth/signup";
+export const LOGIN = "https://supplybackend.ee-cognizantacademy.com/auth/login";
+export const USER_DETAILS = (userId) => `https://supplybackend.ee-cognizantacademy.com/users/${userId}`;
+export const MY_USER_DETAILS = `https://supplybackend.ee-cognizantacademy.com/users/me`;
+export const UPDATE_MY_USER = `https://supplybackend.ee-cognizantacademy.com/users/updateMe`;
+export const UPDATE_USER = (userId) => `https://supplybackend.ee-cognizantacademy.com/users/${userId}`;
+export const GET_USERS = "https://supplybackend.ee-cognizantacademy.com/users";
+export const DELETE_USER = (userId) => `https://supplybackend.ee-cognizantacademy.com/users/${userId}`;
 
 /** Product API Endpoints */
 // export const PRODUCT_COVER = (imageCover) =>
@@ -39,12 +39,12 @@ export const DELETE_USER = (userId) => `http://supplyshop-env-1.eba-f33cdckc.us-
 //   `https://courshopbackend.herokuapp.com/api/products/${productId}`
 
 export const PRODUCT_COVER = (imageCover) =>
-  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/images/${imageCover}`;
-export const GET_PRODUCTS = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products";
+  `https://supplybackend.ee-cognizantacademy.com/products/images/${imageCover}`;
+export const GET_PRODUCTS = "https://supplybackend.ee-cognizantacademy.com/products";
 export const PRODUCT_DETAILS = (productId) =>
-  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
-export const CREATE_PRODUCT = "http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products";
+  `https://supplybackend.ee-cognizantacademy.com/products/${productId}`;
+export const CREATE_PRODUCT = "https://supplybackend.ee-cognizantacademy.com/products";
 export const UPDATE_PRODUCT = (productId) =>
-  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
+  `https://supplybackend.ee-cognizantacademy.com/products/${productId}`;
 export const DELETE_PRODUCT = (productId) =>
-  `http://supplyshop-env-1.eba-f33cdckc.us-west-1.elasticbeanstalk.com/products/${productId}`;
+  `https://supplybackend.ee-cognizantacademy.com/products/${productId}`;
